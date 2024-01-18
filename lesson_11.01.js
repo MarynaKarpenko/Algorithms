@@ -29,3 +29,25 @@ function decimalToBinary(num){
     return array
 }
 console.log(decimalToBinary(27));
+
+
+function decimalToBinary(num10) {
+  index = 0;
+  while (num10 >= Math.pow(2, index)) {
+    index++;
+  }
+  index--;
+  let num2array = [];
+  numTemp = num10;
+  while (numTemp > 0) {
+    for (let i = index; i >= 0; i--) {
+      if (Math.pow(2, i) <= numTemp) {
+        num2array.push(1);
+        numTemp = numTemp - Math.pow(2, i);
+      } else num2array.push(0);
+    }
+  }
+  return Number(num2array.join(""));
+}
+
+console.log(decimalToBinary(45));
